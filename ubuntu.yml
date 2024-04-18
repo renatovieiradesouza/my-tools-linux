@@ -42,7 +42,7 @@
         ignore_errors: true
       - name: Installing Oh-My-zsh
         shell:
-          cmd: 'curl -fsL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash'
+          cmd: 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
           warn: false
         when: ohmyzsh.rc != 0
       - name: Changing Default Shell to ZSH
