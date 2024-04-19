@@ -273,7 +273,7 @@
           - kubens  
       - name: Creating ZSH Completion  
         file:
-          src: '/opt/kubectx/completion/{{ item }}'
+          src: '/opt/kubectx/completion/_{{ item }}'
           dest: '/home/{{ ansible_user_id }}/.oh-my-zsh/completions/_{{ item }}'
           state: link
         with_items:
