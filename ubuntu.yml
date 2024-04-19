@@ -36,6 +36,10 @@
           - mtr
 
     - block:
+      - name: Verify if vscode is installed
+        command: test -d /home/{{ ansible_user_id }}/.oh-my-zsh
+        register: vscode
+        ignore_errors: true    
       - name: Verify if Oh-My-zsh is installed
         command: test -d /home/{{ ansible_user_id }}/.oh-my-zsh
         register: ohmyzsh
@@ -158,14 +162,6 @@
         get_url:    
           url: 'https://github.com/hairyhenderson/gomplate/releases/download/v3.9.0/gomplate_linux-amd64'
           dest: /usr/local/bin/gomplate
-          mode: 755
-
-    - block:
-      - name: Installing Stern 1.11.0
-        become: true
-        get_url:    
-          url: 'https://github.com/wercker/stern/releases/download/1.11.0/stern_linux_amd64'
-          dest: /usr/local/bin/stern
           mode: 755
 
     - block:
